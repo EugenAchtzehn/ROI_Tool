@@ -7,96 +7,107 @@ const vm = Vue.createApp({
       // 由 hidden input 載入的 JSON 資料
       processingData: {
         CameraId: 1,
-        CameraName: '振興發',
         CameraNo: 'Cam_1',
+        CameraName: '振興發',
         CameraPointId: 3,
-        CameraPointImageUrl:
-          'https://github.com/EugenAchtzehn/canvasToPNG/blob/main/images/SamplePicture1.jpg',
         CameraPointNo: 1,
+        CameraPointImageUrl:
+          'https://eugenachtzehn.github.io/canvasToPNG/images/SamplePicture1.jpg',
         ROIConfig: [
-          {
-            ALGFrame: 10,
-            ALG_Type: 16,
-            CameraID: 'Cam_1',
-            CameraPointNo: 3,
-            ContrastTH: 30,
-            DetectionTH: 50,
-            MaxBrightness: 225,
-            MinBrightness: 80,
-            Mode: 3,
-            ROI: 1,
-            ROIText: 'ROI1：華映',
-            RPC: 0,
-            Response: 15,
-            SerId: 1,
-            SmokeTH: 35,
-            Smoke_LL_X: 161,
-            Smoke_LL_Y: 254,
-            Smoke_LR_X: 343,
-            Smoke_LR_Y: 254,
-            Smoke_TL_X: 161,
-            Smoke_TL_Y: 202,
-            Smoke_TR_X: 343,
-            Smoke_TR_Y: 195,
-            StableTH: 3,
-            Stable_LL_X: 155,
-            Stable_LL_Y: 415,
-            Stable_LR_X: 335,
-            Stable_LR_Y: 415,
-            Stable_TL_X: 155,
-            Stable_TL_Y: 350,
-            Stable_TR_X: 335,
-            Stable_TR_Y: 350,
-            TextureTH: 30,
-            alertPointnum: 4,
-            iHeight: 480,
-            iWidth: 704,
-          },
-          {
-            ALGFrame: 10,
-            ALG_Type: 16,
-            CameraID: 'Cam_1',
-            CameraPointNo: 3,
-            ContrastTH: 30,
-            DetectionTH: 50,
-            MaxBrightness: 225,
-            MinBrightness: 80,
-            Mode: 3,
-            ROI: 2,
-            ROIText: 'ROI2：華映2',
-            RPC: 0,
-            Response: 15,
-            SerId: 2,
-            SmokeTH: 35,
-            Smoke_LL_X: 10,
-            Smoke_LL_Y: 50,
-            Smoke_LR_X: 100,
-            Smoke_LR_Y: 50,
-            Smoke_TL_X: 10,
-            Smoke_TL_Y: 10,
-            Smoke_TR_X: 100,
-            Smoke_TR_Y: 10,
-            StableTH: 3,
-            Stable_LL_X: 155,
-            Stable_LL_Y: 415,
-            Stable_LR_X: 335,
-            Stable_LR_Y: 415,
-            Stable_TL_X: 155,
-            Stable_TL_Y: 350,
-            Stable_TR_X: 335,
-            Stable_TR_Y: 350,
-            TextureTH: 30,
-            alertPointnum: 4,
-            iHeight: 480,
-            iWidth: 704,
-          },
+          {},
+          // {
+          //   ROIId: 105,
+          //   CameraId: 1,
+          //   CameraNo: 'Cam_1',
+          //   CameraPointId: 3,
+          //   CameraPointNo: 1,
+          //   ALGFrame: 10,
+          //   ALG_Type: 16,
+          //   ContrastTH: 30,
+          //   DetectionTH: 50,
+          //   MaxBrightness: 225,
+          //   MinBrightness: 80,
+          //   Mode: 3,
+          //   RPC: 0,
+          //   Response: 15,
+          //   SmokeTH: 35,
+          //   ROI: 1,
+          //   Smoke_LL_X: 161,
+          //   Smoke_LL_Y: 254,
+          //   Smoke_LR_X: 343,
+          //   Smoke_LR_Y: 254,
+          //   Smoke_TL_X: 161,
+          //   Smoke_TL_Y: 202,
+          //   Smoke_TR_X: 343,
+          //   Smoke_TR_Y: 195,
+          //   StableTH: 3,
+          //   Stable_LL_X: 155,
+          //   Stable_LL_Y: 415,
+          //   Stable_LR_X: 335,
+          //   Stable_LR_Y: 415,
+          //   Stable_TL_X: 155,
+          //   Stable_TL_Y: 350,
+          //   Stable_TR_X: 335,
+          //   Stable_TR_Y: 350,
+          //   TextureTH: 30,
+          //   alertPointnum: 4,
+          //   iHeight: 480,
+          //   iWidth: 704,
+          //   ROIText: 'ROI1：華映',
+          //   GroupName: '',
+          //   isDelete: false,
+          // },
+          // {
+          //   ROIId: 99,
+          //   CameraId: 1,
+          //   CameraNo: 'Cam_1',
+          //   CameraPointId: 3,
+          //   CameraPointNo: 1,
+          //   ALGFrame: 10,
+          //   ALG_Type: 16,
+          //   ContrastTH: 30,
+          //   DetectionTH: 50,
+          //   MaxBrightness: 225,
+          //   MinBrightness: 80,
+          //   Mode: 3,
+          //   RPC: 0,
+          //   Response: 15,
+          //   SmokeTH: 35,
+          //   ROI: 2,
+          //   Smoke_LL_X: 10,
+          //   Smoke_LL_Y: 50,
+          //   Smoke_LR_X: 100,
+          //   Smoke_LR_Y: 50,
+          //   Smoke_TL_X: 10,
+          //   Smoke_TL_Y: 10,
+          //   Smoke_TR_X: 100,
+          //   Smoke_TR_Y: 10,
+          //   StableTH: 3,
+          //   Stable_LL_X: 155,
+          //   Stable_LL_Y: 415,
+          //   Stable_LR_X: 335,
+          //   Stable_LR_Y: 415,
+          //   Stable_TL_X: 155,
+          //   Stable_TL_Y: 350,
+          //   Stable_TR_X: 335,
+          //   Stable_TR_Y: 350,
+          //   TextureTH: 30,
+          //   alertPointnum: 4,
+          //   iHeight: 480,
+          //   iWidth: 704,
+          //   ROIText: 'ROI2：華映2',
+          //   GroupName: '',
+          //   isDelete: false,
+          // },
         ],
       },
       // 編輯狀態，預設為 false
       editMode: false,
+      // 震動框編輯狀態，預設為 false
+      editStableMode: false,
       pathCoords: [],
       // 畫框可切換為 true
-      recordMode: false,
+      // recordMode: false,
       // 先寫死，待研究怎麼取檔比較好
       // imageList: [
       //   { imagePoint: '照片範例1', imageFileName: 'SamplePicture1' },
@@ -138,32 +149,37 @@ const vm = Vue.createApp({
         Smoke_LL_X: '',
         Smoke_LL_Y: '',
       },
-      stableRoi: {
-        // Stable_LL_X: 155,
-        // Stable_LL_Y: 415,
-        // Stable_LR_X: 335,
-        // Stable_LR_Y: 415,
-        // Stable_TL_X: 155,
-        // Stable_TL_Y: 350,
-        // Stable_TR_X: 335,
-        // Stable_TR_Y: 350,
+      onEditStable: {
+        Stable_LL_X: '',
+        Stable_LL_Y: '',
+        Stable_LR_X: '',
+        Stable_LR_Y: '',
+        Stable_TL_X: '',
+        Stable_TL_Y: '',
+        Stable_TR_X: '',
+        Stable_TR_Y: '',
       },
       otherParams: {
+        // ROIId 新增為 0, 既有則讀取後帶入
+        ROIId: 0,
+        // 以下由外層傳入
+        CameraId: '',
+        CameraNo: '',
+        CameraPointId: '',
+        CameraPointNo: '',
+        // --- 外層傳入結束
         ALGFrame: 10,
         ALG_Type: 16,
-        // CameraID: 'Cam_1',
-        // CameraPointNo: 3,
         ContrastTH: 30,
         DetectionTH: 50,
         MaxBrightness: 225,
         MinBrightness: 80,
         Mode: 3,
-        // ROI: 2,
-        // ROIText: 'ROI2：華映2',
         RPC: 0,
         Response: 15,
-        // SerId: 2,
         SmokeTH: 35,
+        // 以下參數由編輯介面設定
+        // ROI: 1
         // Smoke_LL_X: 10,
         // Smoke_LL_Y: 50,
         // Smoke_LR_X: 100,
@@ -185,6 +201,9 @@ const vm = Vue.createApp({
         alertPointnum: 4,
         iHeight: 480,
         iWidth: 704,
+        ROIText: '',
+        GroupName: '',
+        isDelete: false,
       },
     };
   },
@@ -216,39 +235,42 @@ const vm = Vue.createApp({
       vm.XCoord = event.pageX - canvas.offsetLeft;
       vm.YCoord = event.pageY - canvas.offsetTop;
     },
-    recordCoords(event) {
-      const vm = this;
-      // 若非 recordMode 則不執行此函數
-      if (!vm.recordMode) return;
+    // recordCoords(event) {
+    //   const vm = this;
+    //   // 若非 recordMode 則不執行此函數
+    //   if (!vm.recordMode) return;
 
-      // 限制繪製的點位數量
-      if (vm.pathCoords.length >= 4) {
-        window.alert('繪製點位不可超出 4 組！');
-        return;
-      }
+    //   // 限制繪製的點位數量
+    //   if (vm.pathCoords.length >= 4) {
+    //     window.alert('繪製點位不可超出 4 組！');
+    //     return;
+    //   }
 
-      let x = vm.XCoord;
-      let y = vm.YCoord;
-      vm.pathCoords.push({ x, y });
-      // 畫出第四組點位時，自動閉合成框，並關閉編輯模式
-      if (vm.pathCoords.length === 4) {
-        vm.drawPath();
-        vm.switchMode();
-      }
-      vm.drawConnection();
-    },
+    //   let x = vm.XCoord;
+    //   let y = vm.YCoord;
+    //   vm.pathCoords.push({ x, y });
+    //   // 畫出第四組點位時，自動閉合成框，並關閉編輯模式
+    //   if (vm.pathCoords.length === 4) {
+    //     vm.drawPath();
+    //     vm.switchMode();
+    //   }
+    //   vm.drawConnection();
+    // },
     editRoiPoints() {
       const vm = this;
-      vm.clickCount += 1;
       // 若非 editMode 則不執行此函數
       if (!vm.editMode) return;
+
+      vm.clickCount += 1;
+
       let x = vm.XCoord;
       let y = vm.YCoord;
+
       switch (vm.clickCount) {
         case 1:
           vm.onEdit.Smoke_TL_X = x;
           vm.onEdit.Smoke_TL_Y = y;
-          vm.drawStartPoint(vm.onEdit.Smoke_TL_X, vm.onEdit.Smoke_TL_Y);
+          vm.drawStartPoint(vm.onEdit.Smoke_TL_X, vm.onEdit.Smoke_TL_Y, 'red');
           break;
         case 2:
           vm.onEdit.Smoke_TR_X = x;
@@ -257,7 +279,8 @@ const vm = Vue.createApp({
             vm.onEdit.Smoke_TL_X,
             vm.onEdit.Smoke_TL_Y,
             vm.onEdit.Smoke_TR_X,
-            vm.onEdit.Smoke_TR_Y
+            vm.onEdit.Smoke_TR_Y,
+            'red'
           );
           break;
         case 3:
@@ -267,7 +290,8 @@ const vm = Vue.createApp({
             vm.onEdit.Smoke_TR_X,
             vm.onEdit.Smoke_TR_Y,
             vm.onEdit.Smoke_LR_X,
-            vm.onEdit.Smoke_LR_Y
+            vm.onEdit.Smoke_LR_Y,
+            'red'
           );
           break;
         case 4:
@@ -278,15 +302,78 @@ const vm = Vue.createApp({
             vm.onEdit.Smoke_LR_X,
             vm.onEdit.Smoke_LR_Y,
             vm.onEdit.Smoke_LL_X,
-            vm.onEdit.Smoke_LL_Y
+            vm.onEdit.Smoke_LL_Y,
+            'red'
           );
           vm.drawConnection(
             vm.onEdit.Smoke_LL_X,
             vm.onEdit.Smoke_LL_Y,
             vm.onEdit.Smoke_TL_X,
-            vm.onEdit.Smoke_TL_Y
+            vm.onEdit.Smoke_TL_Y,
+            'red'
           );
           // vm.switchMode();
+          break;
+        default:
+          console.log('clickCount not expectable...');
+          break;
+      }
+    },
+    editStableRoiPoints() {
+      const vm = this;
+      // 若非 editStableMode 則不執行此函數
+      if (!vm.editStableMode) return;
+
+      vm.clickCount += 1;
+
+      let x = vm.XCoord;
+      let y = vm.YCoord;
+
+      switch (vm.clickCount) {
+        case 1:
+          vm.onEditStable.Stable_TL_X = x;
+          vm.onEditStable.Stable_TL_Y = y;
+          vm.drawStartPoint(vm.onEditStable.Stable_TL_X, vm.onEditStable.Stable_TL_Y, 'blue');
+          break;
+        case 2:
+          vm.onEditStable.Stable_TR_X = x;
+          vm.onEditStable.Stable_TR_Y = y;
+          vm.drawConnection(
+            vm.onEditStable.Stable_TL_X,
+            vm.onEditStable.Stable_TL_Y,
+            vm.onEditStable.Stable_TR_X,
+            vm.onEditStable.Stable_TR_Y,
+            'blue'
+          );
+          break;
+        case 3:
+          vm.onEditStable.Stable_LR_X = x;
+          vm.onEditStable.Stable_LR_Y = y;
+          vm.drawConnection(
+            vm.onEditStable.Stable_TR_X,
+            vm.onEditStable.Stable_TR_Y,
+            vm.onEditStable.Stable_LR_X,
+            vm.onEditStable.Stable_LR_Y,
+            'blue'
+          );
+          break;
+        case 4:
+          vm.onEditStable.Stable_LL_X = x;
+          vm.onEditStable.Stable_LL_Y = y;
+          vm.drawConnection(
+            vm.onEditStable.Stable_LR_X,
+            vm.onEditStable.Stable_LR_Y,
+            vm.onEditStable.Stable_LL_X,
+            vm.onEditStable.Stable_LL_Y,
+            'blue'
+          );
+          vm.drawConnection(
+            vm.onEditStable.Stable_LL_X,
+            vm.onEditStable.Stable_LL_Y,
+            vm.onEditStable.Stable_TL_X,
+            vm.onEditStable.Stable_TL_Y,
+            'blue'
+          );
           break;
         default:
           console.log('clickCount not expectable...');
@@ -298,14 +385,19 @@ const vm = Vue.createApp({
       const vm = this;
       vm.editMode = !vm.editMode;
     },
-    drawStartPoint(x, y) {
+    switchStableMode() {
       const vm = this;
-      vm.vueCanvas.fillRect(x, y, 3, 3);
+      vm.editStableMode = !vm.editStableMode;
+    },
+    drawStartPoint(x, y, color) {
+      const vm = this;
+      vm.vueCanvas.fillStyle = color;
+      vm.vueCanvas.fillRect(x, y, 2, 2);
     },
     // 畫出兩點間的連線
-    drawConnection(prevX, prevY, nextX, nextY) {
+    drawConnection(prevX, prevY, nextX, nextY, color) {
       const vm = this;
-      vm.vueCanvas.strokeStyle = 'red';
+      vm.vueCanvas.strokeStyle = color;
       vm.vueCanvas.lineWidth = 3;
       vm.vueCanvas.beginPath();
       vm.vueCanvas.moveTo(prevX, prevY);
@@ -313,36 +405,35 @@ const vm = Vue.createApp({
       vm.vueCanvas.closePath();
       vm.vueCanvas.stroke();
     },
-    drawPath() {
-      const vm = this;
-      if (vm.onEdit.Smoke_LL_Y) {
-        vm.vueCanvas.beginPath();
-        // vm.vueCanvas.moveTo(vm.onEdit.Smoke_TL_X, vm.onEdit.Smoke_TL_Y);
-        switch (vm.clickCount) {
-          case 1:
-            vm.vueCanvas.moveTo(vm.onEdit.Smoke_TL_X, vm.onEdit.Smoke_TL_Y);
-            // vm.vueCanvas.lineTo(vm.pathCoords[i].x, vm.pathCoords[i].y);
-            break;
-          case 2:
-            vm.vueCanvas.lineTo(vm.onEdit.Smoke_TR_X, vm.onEdit.Smoke_TR_Y);
-            break;
-          case 3:
-            vm.vueCanvas.lineTo(vm.onEdit.Smoke_LR_X, vm.onEdit.Smoke_LR_Y);
-            break;
-          case 4:
-            vm.vueCanvas.lineTo(vm.onEdit.Smoke_LL_X, vm.onEdit.Smoke_LL_Y);
-            break;
-          default:
-            break;
-        }
-        vm.vueCanvas.closePath();
-        vm.vueCanvas.strokeStyle = 'green';
-        vm.vueCanvas.lineWidth = 3;
-        vm.vueCanvas.stroke();
-      } else {
-        console.log('drawPath() error...');
-      }
-    },
+    // drawPath() {
+    //   const vm = this;
+    //   if (vm.onEdit.Smoke_LL_Y) {
+    //     vm.vueCanvas.beginPath();
+    //     // vm.vueCanvas.moveTo(vm.onEdit.Smoke_TL_X, vm.onEdit.Smoke_TL_Y);
+    //     switch (vm.clickCount) {
+    //       case 1:
+    //         vm.vueCanvas.moveTo(vm.onEdit.Smoke_TL_X, vm.onEdit.Smoke_TL_Y);
+    //         break;
+    //       case 2:
+    //         vm.vueCanvas.lineTo(vm.onEdit.Smoke_TR_X, vm.onEdit.Smoke_TR_Y);
+    //         break;
+    //       case 3:
+    //         vm.vueCanvas.lineTo(vm.onEdit.Smoke_LR_X, vm.onEdit.Smoke_LR_Y);
+    //         break;
+    //       case 4:
+    //         vm.vueCanvas.lineTo(vm.onEdit.Smoke_LL_X, vm.onEdit.Smoke_LL_Y);
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //     vm.vueCanvas.closePath();
+    //     vm.vueCanvas.strokeStyle = 'green';
+    //     vm.vueCanvas.lineWidth = 3;
+    //     vm.vueCanvas.stroke();
+    //   } else {
+    //     console.log('drawPath() error...');
+    //   }
+    // },
     renderRoi(roiConfigItem) {
       const vm = this;
       vm.vueCanvas.strokeStyle = 'red';
@@ -380,12 +471,23 @@ const vm = Vue.createApp({
     },
     postToDatabase() {
       const vm = this;
+
+      // vm.processingData.ROIConfig = vm.processingData.ROIConfig.filter((item) => {
+      //   if (Object.values(item).length) {
+      //     return item;
+      //   }
+      // });
+
+      if (!vm.processingData.ROIConfig[0].Stable_LL_Y) {
+        window.alert('震動ROI須設定才能送出！');
+        return;
+      }
+      // console.log(vm.processingData.ROIConfig[0].Stable_LL_Y);
+
       // 至少已經設定一組 ROI 才能送出
       if (vm.processingData.ROIConfig.length) {
-        // if (vm.checkIsFourPoints())
-        // 排好四點在 pathCoords 中的順序，TL > TR > LR > LL
-        // const orderedPathCoords = vm.reorderPathCoords(vm.pathCoords);
         const postJson = vm.processingData;
+        console.log(postJson);
         axios
           .post('http://localhost:5050/data.ashx', postJson)
           .then((response) => {
@@ -409,34 +511,108 @@ const vm = Vue.createApp({
     storeEditResult() {
       // console.log('store edition...');
       const vm = this;
-      if (!vm.onEdit.ROI) {
-        window.alert('請選擇 ROI 編號！');
+
+      // 檢查是否參數不足 9 組
+      let checkEmptyArray = Object.values(vm.onEdit).filter((item) => {
+        if (item) {
+          return item;
+        }
+      });
+
+      if (checkEmptyArray.length < 9) {
+        window.alert('設定的參數不足！');
         return;
       }
 
-      // 擴增參數
+      // if (!vm.onEdit.ROI) {
+      //   window.alert('請選擇 ROI 編號！');
+      //   return;
+      // }
+
+      // 擴增參數，由外層傳入
+      // SerId === ROIId
+      vm.otherParams.CameraId = vm.processingData.CameraId;
+      vm.otherParams.CameraNo = vm.processingData.CameraNo;
+      vm.otherParams.CameraPointId = vm.processingData.CameraPointId;
+      vm.otherParams.CameraPointNo = vm.processingData.CameraPointNo;
       vm.onEdit = { ...vm.onEdit, ...vm.otherParams };
 
       // 設定相同的 ROI 會蓋過去，不同的就增加到陣列中
       const roiNoArray = vm.processingData.ROIConfig.map((item, index) => {
         return item.ROI;
       });
-      console.log('roiNoArray', roiNoArray);
-      console.log('onEdit.ROI', vm.onEdit.ROI);
-      console.log('roiNoArray.include()', roiNoArray.includes(vm.onEdit.ROI));
+      // console.log('roiNoArray', roiNoArray);
+      // console.log('onEdit.ROI', vm.onEdit.ROI);
+      console.log('roiNoArray.include(), 是否為既有ROI:', roiNoArray.includes(vm.onEdit.ROI));
       if (roiNoArray.includes(vm.onEdit.ROI)) {
         let replaceIndex = roiNoArray.indexOf(vm.onEdit.ROI);
         // 沒找到 indexOf 回傳 -1
+
+        const existingParams = {
+          ROIId: vm.processingData.ROIConfig[replaceIndex].ROIId,
+          Stable_TL_X: vm.processingData.ROIConfig[replaceIndex].Stable_TL_X,
+          Stable_TL_Y: vm.processingData.ROIConfig[replaceIndex].Stable_TL_Y,
+          Stable_TR_X: vm.processingData.ROIConfig[replaceIndex].Stable_TR_X,
+          Stable_TR_Y: vm.processingData.ROIConfig[replaceIndex].Stable_TR_Y,
+          Stable_LR_X: vm.processingData.ROIConfig[replaceIndex].Stable_LR_X,
+          Stable_LR_Y: vm.processingData.ROIConfig[replaceIndex].Stable_LR_Y,
+          Stable_LL_X: vm.processingData.ROIConfig[replaceIndex].Stable_LL_X,
+          Stable_LL_Y: vm.processingData.ROIConfig[replaceIndex].Stable_LL_Y,
+        };
+
         if (replaceIndex !== -1) {
           vm.processingData.ROIConfig.splice(replaceIndex, 1, vm.onEdit);
+          // 取代過後再存入
+          vm.processingData.ROIConfig[replaceIndex] = {
+            ...vm.processingData.ROIConfig[replaceIndex],
+            ...existingParams,
+          };
         }
       } else {
-        vm.processingData.ROIConfig.push(vm.onEdit);
+        // 加入 StableROI
+        vm.processingData.ROIConfig.push({ ...vm.onEdit, ...vm.onEditStable });
       }
+
+      const noEmptyROIConfigArray = vm.processingData.ROIConfig.filter((item) => {
+        // 非空物件
+        if (Object.keys(item).length) {
+          return { ...item, ...vm.onEditStable };
+        }
+      });
+
+      // console.log(noEmptyROIConfigArray);
+      vm.processingData.ROIConfig = noEmptyROIConfigArray;
 
       vm.onEdit = {};
       vm.clickCount = 0;
       vm.switchMode();
+      vm.initProcess();
+    },
+    storeStableEditResult() {
+      const vm = this;
+
+      // 檢查是否參數不足 9 組
+      let checkEmptyArray = Object.values(vm.onEditStable).filter((item) => {
+        if (item) {
+          return item;
+        }
+      });
+
+      if (checkEmptyArray.length < 8) {
+        window.alert('設定的參數不足！');
+        return;
+      }
+
+      // vm.processingData.ROIConfig[0] = { ...vm.processingData.ROIConfig[0], ...vm.onEditStable };
+      const expandedROIConfigArray = vm.processingData.ROIConfig.map((item, index) => {
+        return { ...item, ...vm.onEditStable };
+      });
+
+      vm.processingData.ROIConfig = expandedROIConfigArray;
+
+      vm.onEditStable = {};
+      vm.clickCount = 0;
+      vm.switchStableMode();
       vm.initProcess();
     },
     addNewRoi() {
@@ -448,19 +624,28 @@ const vm = Vue.createApp({
       }
       vm.editMode = true;
     },
-    addStableRoi() {},
-    renderImage() {
+    switchStableMode() {
       const vm = this;
-      // 建立新的 Image 物件
-      let imageObj = new Image();
-      imageObj.src = 'https://eugenachtzehn.github.io/canvasToPNG/images/SamplePicture1.jpg';
-      // 本機測試須加入跨域設定
-      imageObj.crossOrigin = 'Anonymous';
+      vm.editStableMode = !vm.editStableMode;
+    },
+    async renderImage() {
+      const vm = this;
+      const url = 'https://eugenachtzehn.github.io/canvasToPNG/images/SamplePicture1.jpg';
+      const image = await vm.loadImage(url);
+      console.log('imageImage() success...');
+      // console.log(image);
+      vm.vueCanvas.drawImage(image, 0, 0);
+    },
+    loadImage(url) {
+      const vm = this;
       return new Promise((resolve, reject) => {
-        imageObj.onload = resolve;
+        // 建立新的 Image 物件
+        const imageObj = new Image();
+        imageObj.onload = () => resolve(imageObj);
         imageObj.onerror = reject;
-        console.log('image loaded...');
-        vm.vueCanvas.drawImage(imageObj, 0, 0);
+        imageObj.src = url;
+        // 本機測試須加入跨域設定
+        imageObj.crossOrigin = 'Anonymous';
       });
     },
     async renderAllRoi() {
@@ -488,8 +673,8 @@ const vm = Vue.createApp({
     async initProcess() {
       const vm = this;
       vm.clearCanvas();
-      let renderImageSuccess = await vm.renderImage();
-      console.log('renderImage() Success...', renderImageSuccess);
+      await vm.renderImage();
+
       let renderAllRoiSuccess = await vm.renderAllRoi();
       console.log(renderAllRoiSuccess);
       let renderAllStableRoiSuccess = await vm.renderAllStableRoi();
@@ -508,55 +693,58 @@ const vm = Vue.createApp({
       vm.clickCount = 0;
       vm.initProcess();
     },
+    deleteStableEditResult() {
+      const vm = this;
+      vm.switchStableMode();
+      vm.onEditStable = {};
+      vm.clickCount = 0;
+      vm.initProcess();
+    },
   },
   // 資料監聽
   watch: {
-    'pathCoords.length': function () {
-      const vm = this;
-      console.log('Watching pathCoords length...', vm.pathCoords.length);
-      switch (vm.pathCoords.length) {
-        case 1:
-          vm.onEdit.TL_X = vm.pathCoords[0].x;
-          vm.onEdit.TL_Y = vm.pathCoords[0].y;
-          break;
-        case 2:
-          vm.onEdit.TR_X = vm.pathCoords[1].x;
-          vm.onEdit.TR_Y = vm.pathCoords[1].y;
-          break;
-        case 3:
-          vm.onEdit.LR_X = vm.pathCoords[2].x;
-          vm.onEdit.LR_Y = vm.pathCoords[2].y;
-          break;
-        case 4:
-          vm.onEdit.LL_X = vm.pathCoords[3].x;
-          vm.onEdit.LL_Y = vm.pathCoords[3].y;
-          break;
-        default:
-          console.log('pathCoords.length not expectable');
-          break;
-      }
-    },
+    // 'pathCoords.length': function () {
+    //   const vm = this;
+    //   console.log('Watching pathCoords length...', vm.pathCoords.length);
+    //   switch (vm.pathCoords.length) {
+    //     case 1:
+    //       vm.onEdit.TL_X = vm.pathCoords[0].x;
+    //       vm.onEdit.TL_Y = vm.pathCoords[0].y;
+    //       break;
+    //     case 2:
+    //       vm.onEdit.TR_X = vm.pathCoords[1].x;
+    //       vm.onEdit.TR_Y = vm.pathCoords[1].y;
+    //       break;
+    //     case 3:
+    //       vm.onEdit.LR_X = vm.pathCoords[2].x;
+    //       vm.onEdit.LR_Y = vm.pathCoords[2].y;
+    //       break;
+    //     case 4:
+    //       vm.onEdit.LL_X = vm.pathCoords[3].x;
+    //       vm.onEdit.LL_Y = vm.pathCoords[3].y;
+    //       break;
+    //     default:
+    //       console.log('pathCoords.length not expectable');
+    //       break;
+    //   }
+    // },
   },
   computed: {
     hint() {
       const vm = this;
-      let displayedMessage = '';
-      switch (vm.pathCoords.length) {
-        case 1:
-          displayedMessage = '請在圖面點選ROI右上角點位';
-          break;
-        case 2:
-          displayedMessage = '請在圖面點選ROI右下角點位';
-          break;
-        case 3:
-          displayedMessage = '請在圖面點選ROI左下角點位';
-          break;
-        case 4:
-          displayedMessage = '完成！';
-          break;
-        default:
-          displayedMessage = '請點選黃色畫框按鈕，並在圖面點選ROI左上角點位';
-          break;
+      let displayedMessage =
+        '點擊新增/編輯ROI鈕後，請在圖面點擊4次，由左上 > 右上 > 右下 > 左下，點出四邊形的四個角';
+
+      if (vm.editMode && !vm.onEdit.Smoke_TL_X) {
+        displayedMessage = '請在圖面點選 ROI "左上"點位';
+      } else if (vm.editMode && !vm.onEdit.Smoke_TR_X) {
+        displayedMessage = '請在圖面點選 ROI "右上"點位';
+      } else if (vm.editMode && !vm.onEdit.Smoke_LR_X) {
+        displayedMessage = '請在圖面點選 ROI "右下"點位';
+      } else if (vm.editMode && !vm.onEdit.Smoke_LL_X) {
+        displayedMessage = '請在圖面點選 ROI "左下"點位';
+      } else if (vm.editMode && vm.onEdit.Smoke_LL_X) {
+        displayedMessage = '請檢查是否已填入ROI編號，按下確認完成編輯';
       }
       return displayedMessage;
     },
@@ -574,6 +762,18 @@ const vm = Vue.createApp({
     // console.log('inputHiddenValue', JSON.parse(inputHiddenValue));
 
     this.initProcess();
+
+    // 如果載入時已經有 StableROI 則帶入第一筆到 onEditStable
+    if (this.processingData.ROIConfig[0].Stable_LL_Y) {
+      this.onEditStable.Stable_TL_X = this.processingData.ROIConfig[0].Stable_TL_X;
+      this.onEditStable.Stable_TL_Y = this.processingData.ROIConfig[0].Stable_TL_Y;
+      this.onEditStable.Stable_TR_X = this.processingData.ROIConfig[0].Stable_TR_X;
+      this.onEditStable.Stable_TR_Y = this.processingData.ROIConfig[0].Stable_TR_Y;
+      this.onEditStable.Stable_LR_X = this.processingData.ROIConfig[0].Stable_LR_X;
+      this.onEditStable.Stable_LR_Y = this.processingData.ROIConfig[0].Stable_LR_Y;
+      this.onEditStable.Stable_LL_X = this.processingData.ROIConfig[0].Stable_LL_X;
+      this.onEditStable.Stable_LL_Y = this.processingData.ROIConfig[0].Stable_LL_Y;
+    }
   },
   created() {},
 });

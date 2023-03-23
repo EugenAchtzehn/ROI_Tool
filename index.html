@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Begin of importing google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- End of importing google fonts -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible"
-        content="IE=edge" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0" />
-  <!-- Begin of importing google fonts -->
-  <link rel="preconnect"
-        href="https://fonts.googleapis.com" />
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
-        rel="stylesheet" />
-  <!-- End of importing google fonts -->
-  <link rel="stylesheet"
-        href="./css/bootstrap.min.css">
+    <!-- JavaScript -->
+    <script src="./js/axios.js"></script>
+    <script src="./js/vue.global.js"></script>
+    <!-- Production Version -->
+    <!-- <script src="./js/vue.global.prod.min.js"></script> -->
 
+    <title>ROI設定工具</title>
+  </head>
 
-  <script src="./js/axios.js"></script>
-  <script src="./js/vue.global.js"></script>
-  <!-- <script src="https://unpkg.com/vue@3.2.45"></script> -->
-  <title>ROI擷取</title>
-</head>
-
-<body>
-  <div id="app"
-       class="container">
-    <input type="hidden"
-           value='{"products":{"id":100001,"name":"TEST"}}'
-           ref="processingData" />
-    <div>
-      <h1>ROI產框</h1>
-      <h4 class="mouseCoords">圖面座標 x: {{ XCoord }}, y: {{ YCoord }}</h4>
-      <!-- <div class="h5 hint_sec p-2">操作提示：{{ hint }}</div> -->
-    </div>
-    <canvas id="canvas"
-            width="704"
-            height="480"
-            ref="canvas"
-            @mousemove="getCoords"
-            @click="editRoiPoints"></canvas>
-    <!-- 上傳檔案區 -->
-    <!-- <div class="mt-3">
+  <body>
+    <div id="app" class="container">
+      <input type="hidden" value='{"products":{"id":100001,"name":"TEST"}}' ref="processingData" />
+      <div>
+        <h1>ROI產框</h1>
+        <h4 class="mouseCoords">圖面座標 x: {{ XCoord }}, y: {{ YCoord }}</h4>
+        <div class="h5 hint_sec p-2">
+          操作提示：<br />
+          {{ hint }}
+        </div>
+      </div>
+      <canvas
+        id="canvas"
+        width="704"
+        height="480"
+        ref="canvas"
+        @mousemove="getCoords"
+        @click="editRoiPoints(); editStableRoiPoints()"
+      ></canvas>
+      <!-- 上傳檔案區 -->
+      <!-- <div class="mt-3">
       <div class="input-group input-group-sm"
            style="width: 300px">
         <input type="file"
@@ -57,60 +56,63 @@
       </div>
     </div> -->
 
-    <div class="roiPointsSec my-3 py-3 row"
-         v-for="(item, index) in processingData.ROIConfig"
-         :key="item.ROI">
-      <!-- <h6>ROI</h6> -->
-      <div class="col-1">
-        <div>ROI編號</div>
-        <div class="point_sec">{{ item.ROI }}</div>
-      </div>
-      <div class="col-1">
-        <div>左上X</div>
-        <div class="point_sec">{{ item.Smoke_TL_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>左上Y</div>
-        <div class="point_sec">{{ item.Smoke_TL_Y }}</div>
-      </div>
-      <div class="col-1">
-        <div>右上X</div>
-        <div class="point_sec">{{ item.Smoke_TR_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>右上Y</div>
-        <div class="point_sec">{{ item.Smoke_TR_Y }}</div>
-      </div>
-      <div class="col-1">
-        <div>右下X</div>
-        <div class="point_sec">{{ item.Smoke_LR_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>右下Y</div>
-        <div class="point_sec">{{ item.Smoke_LR_Y }}</div>
-      </div>
-      <div class="col-1">
-        <div>左下X</div>
-        <div class="point_sec">{{ item.Smoke_LL_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>左下Y</div>
-        <div class="point_sec">{{ item.Smoke_LL_Y }}</div>
-      </div>
-      <div class="col-1 d-flex justify-content-center align-items-end">
-        <button type="button"
+      <div
+        class="roiPointsSec my-3 py-3 row"
+        v-for="(item, index) in processingData.ROIConfig"
+        :key="item.ROI"
+      >
+        <!-- <h6>ROI</h6> -->
+        <div class="col-1">
+          <div>ROI編號</div>
+          <div class="point_sec">{{ item.ROI }}</div>
+        </div>
+        <div class="col-1">
+          <div>左上X</div>
+          <div class="point_sec">{{ item.Smoke_TL_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>左上Y</div>
+          <div class="point_sec">{{ item.Smoke_TL_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>右上X</div>
+          <div class="point_sec">{{ item.Smoke_TR_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>右上Y</div>
+          <div class="point_sec">{{ item.Smoke_TR_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>右下X</div>
+          <div class="point_sec">{{ item.Smoke_LR_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>右下Y</div>
+          <div class="point_sec">{{ item.Smoke_LR_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>左下X</div>
+          <div class="point_sec">{{ item.Smoke_LL_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>左下Y</div>
+          <div class="point_sec">{{ item.Smoke_LL_Y }}</div>
+        </div>
+        <!-- <div class="col-2 d-flex justify-content-center align-items-end">
+          <button type="button" class="btn me-3 btn-warning" @click="switchMode">編輯</button>
+          <button type="button"
                 class="btn me-3"
                 :class="{'btn-warning': !recordMode, 'btn-danger': recordMode}"
                 @click="switchMode">
           編輯
         </button>
-      </div>
-      <div class="col-1 d-flex justify-content-center align-items-end">
+        </div> -->
+        <!-- <div class="col-1 d-flex justify-content-center align-items-end">
         <button type="button"
                 class="btn btn-danger"
                 @click="deleteRoiConfig(index)">刪除</button>
-      </div>
-      <!-- <div class="col-1">
+      </div> -->
+        <!-- <div class="col-1">
         <div>ROI編號</div>
         <div class="point_sec">{{ onEdit.RoiNum }}</div>
       </div>
@@ -158,138 +160,166 @@
         <button type="button"
                 class="btn btn-danger">刪除</button>
       </div> -->
-    </div>
+      </div>
 
-    <div class="roiNewPointsSec my-3 py-3 row"
-         v-if="editMode">
-      <h6>編輯區</h6>
-      <div class="col-1">
-        <label for="ROINum"
-               class="form-label">ROI編號</label>
-        <input type="number"
-               id="ROINum"
-               class="form-control"
-               v-model="onEdit.ROI"
-               min="1" />
-        <!-- <div class="point_sec">{{ onEdit.ROI }}</div> -->
+      <div class="roiNewPointsSec my-3 py-3 row" v-if="editMode">
+        <h6>編輯區</h6>
+        <div class="col-1">
+          <label for="ROINum" class="form-label">ROI編號</label>
+          <input type="number" id="ROINum" class="form-control" v-model="onEdit.ROI" min="1" />
+          <!-- <div class="point_sec">{{ onEdit.ROI }}</div> -->
+        </div>
+        <div class="col-1">
+          <div>左上X</div>
+          <div class="point_sec">{{ onEdit.Smoke_TL_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>左上Y</div>
+          <div class="point_sec">{{ onEdit.Smoke_TL_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>右上X</div>
+          <div class="point_sec">{{ onEdit.Smoke_TR_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>右上Y</div>
+          <div class="point_sec">{{ onEdit.Smoke_TR_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>右下X</div>
+          <div class="point_sec">{{ onEdit.Smoke_LR_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>右下Y</div>
+          <div class="point_sec">{{ onEdit.Smoke_LR_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>左下X</div>
+          <div class="point_sec">{{ onEdit.Smoke_LL_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>左下Y</div>
+          <div class="point_sec">{{ onEdit.Smoke_LL_Y }}</div>
+        </div>
+        <div class="col-1 d-flex justify-content-center align-items-end">
+          <button type="button" class="btn me-3 btn-success" @click="storeEditResult">確定</button>
+        </div>
+        <div class="col-1 d-flex justify-content-center align-items-end">
+          <button type="button" class="btn btn-danger" @click="deleteEditResult">取消</button>
+        </div>
       </div>
-      <div class="col-1">
-        <div>左上X</div>
-        <div class="point_sec">{{ onEdit.Smoke_TL_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>左上Y</div>
-        <div class="point_sec">{{ onEdit.Smoke_TL_Y }}</div>
-      </div>
-      <div class="col-1">
-        <div>右上X</div>
-        <div class="point_sec">{{ onEdit.Smoke_TR_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>右上Y</div>
-        <div class="point_sec">{{ onEdit.Smoke_TR_Y }}</div>
-      </div>
-      <div class="col-1">
-        <div>右下X</div>
-        <div class="point_sec">{{ onEdit.Smoke_LR_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>右下Y</div>
-        <div class="point_sec">{{ onEdit.Smoke_LR_Y }}</div>
-      </div>
-      <div class="col-1">
-        <div>左下X</div>
-        <div class="point_sec">{{ onEdit.Smoke_LL_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>左下Y</div>
-        <div class="point_sec">{{ onEdit.Smoke_LL_Y }}</div>
-      </div>
-      <div class="col-1 d-flex justify-content-center align-items-end">
+
+      <button type="button" class="btn btn-success mx-auto my-3 d-block" @click="addNewRoi">
+        新增/編輯ROI
+      </button>
+
+      <!-- 沒有震動ROI會顯示 "新增震動ROI" -->
+      <div class="stablePointsSec my-3 py-3 row" v-if="!editStableMode">
+        <h6>震動ROI</h6>
+        <div class="col-1">
+          <div>左上X</div>
+          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TL_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>左上Y</div>
+          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TL_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>右上X</div>
+          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TR_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>右上Y</div>
+          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TR_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>右下X</div>
+          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LR_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>右下Y</div>
+          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LR_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>左下X</div>
+          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LL_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>左下Y</div>
+          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LL_Y }}</div>
+        </div>
+        <!-- <div class="col-1 d-flex justify-content-center align-items-end">
         <button type="button"
-                class="btn me-3 btn-warning"
-                @click="storeEditResult">
-          確定編輯
+                class="btn btn-warning"
+                @click="switchStableMode">
+          編輯
         </button>
-      </div>
-      <div class="col-1 d-flex justify-content-center align-items-end">
-        <button type="button"
-                class="btn btn-danger"
-                @click="deleteEditResult">取消編輯</button>
-      </div>
-    </div>
-
-    <button type="button"
-            class="btn btn-success mx-auto my-3 d-block"
-            @click="addNewRoi">
-      新增ROI
-    </button>
-
-    <div class="stablePointsSec my-3 py-3 row"
-         v-if="processingData.ROIConfig[0]">
-      <h6>震動ROI</h6>
-      <div class="col-1">
-        <div>左上X</div>
-        <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TL_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>左上Y</div>
-        <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TL_Y }}</div>
-      </div>
-      <div class="col-1">
-        <div>右上X</div>
-        <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TR_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>右上Y</div>
-        <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TR_Y }}</div>
-      </div>
-      <div class="col-1">
-        <div>右下X</div>
-        <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LR_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>右下Y</div>
-        <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LR_Y }}</div>
-      </div>
-      <div class="col-1">
-        <div>左下X</div>
-        <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LL_X }}</div>
-      </div>
-      <div class="col-1">
-        <div>左下Y</div>
-        <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LL_Y }}</div>
-      </div>
-      <div class="col-1 d-flex justify-content-center align-items-end">
-        <button type="button"
-                class="btn me-3"
-                :class="{'btn-warning': !recordMode, 'btn-danger': recordMode}"
-                @click="switchMode">
-          畫框
-        </button>
-      </div>
-      <div class="col-1 d-flex justify-content-center align-items-end">
+      </div> -->
+        <!-- <div class="col-1 d-flex justify-content-center align-items-end">
         <button type="button"
                 class="btn btn-danger"
                 @click="deleteRoiConfig(index)">刪除</button>
+      </div> -->
       </div>
-    </div>
-    <div v-else>
-      <button type="button"
-              class="btn btn-success mx-auto my-3 d-block"
-              @click="addStableRoi">
-        新增震動ROI
+      <div class="stableNewPointsSec my-3 py-3 row" v-if="editStableMode">
+        <h6>震動編輯區</h6>
+        <div class="col-1">
+          <div>左上X</div>
+          <div class="point_sec">{{ onEditStable.Stable_TL_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>左上Y</div>
+          <div class="point_sec">{{ onEditStable.Stable_TL_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>右上X</div>
+          <div class="point_sec">{{ onEditStable.Stable_TR_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>右上Y</div>
+          <div class="point_sec">{{ onEditStable.Stable_TR_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>右下X</div>
+          <div class="point_sec">{{ onEditStable.Stable_LR_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>右下Y</div>
+          <div class="point_sec">{{ onEditStable.Stable_LR_Y }}</div>
+        </div>
+        <div class="col-1">
+          <div>左下X</div>
+          <div class="point_sec">{{ onEditStable.Stable_LL_X }}</div>
+        </div>
+        <div class="col-1">
+          <div>左下Y</div>
+          <div class="point_sec">{{ onEditStable.Stable_LL_Y }}</div>
+        </div>
+        <div class="col-1 d-flex justify-content-center align-items-end">
+          <button type="button" class="btn me-3 btn-success" @click="storeStableEditResult">
+            確定
+          </button>
+        </div>
+        <div class="col-1 d-flex justify-content-center align-items-end">
+          <button type="button" class="btn btn-danger" @click="deleteStableEditResult">取消</button>
+        </div>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-success mx-auto my-3 d-block"
+          @click="switchStableMode"
+        >
+          新增/編輯震動ROI
+        </button>
+      </div>
+      <button type="button" class="btn btn-success mx-auto my-3 d-block" @click="postToDatabase">
+        全部設定
       </button>
     </div>
-    <button type="button"
-            class="btn btn-success mx-auto my-3 d-block"
-            @click="postToDatabase">
-      全部設定
-    </button>
-  </div>
-  <script src="./js/all.js"></script>
-</body>
+  </body>
 
+  <script src="./js/all.js"></script>
 </html>
 <style>
   canvas {
@@ -331,6 +361,10 @@
 
   .stablePointsSec {
     background-color: lightblue;
+  }
+
+  .stableNewPointsSec {
+    background-color: skyblue;
   }
 
   .point_sec {
