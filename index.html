@@ -20,7 +20,7 @@
     <!-- Production Version -->
     <!-- <script src="./js/vue.global.prod.min.js"></script> -->
 
-    <title>ROI設定工具</title>
+    <title>Region Of Interest 設定工具</title>
   </head>
 
   <body>
@@ -58,7 +58,7 @@
 
       <div
         class="roiPointsSec my-3 py-3 row"
-        v-for="(item, index) in processingData.ROIConfig"
+        v-for="(item, index) in processingData.ROIConfigs"
         :key="item.ROI"
       >
         <!-- <h6>ROI</h6> -->
@@ -98,19 +98,21 @@
           <div>左下Y</div>
           <div class="point_sec">{{ item.Smoke_LL_Y }}</div>
         </div>
-        <!-- <div class="col-2 d-flex justify-content-center align-items-end">
-          <button type="button" class="btn me-3 btn-warning" @click="switchMode">編輯</button>
-          <button type="button"
+        <div class="col-2 d-flex justify-content-center align-items-end">
+          <button type="button" class="btn me-3 btn-warning" @click="switchMode(item.ROI)">
+            編輯
+          </button>
+          <!-- <button type="button"
                 class="btn me-3"
                 :class="{'btn-warning': !recordMode, 'btn-danger': recordMode}"
                 @click="switchMode">
           編輯
-        </button>
-        </div> -->
+        </button> -->
+        </div>
         <!-- <div class="col-1 d-flex justify-content-center align-items-end">
         <button type="button"
                 class="btn btn-danger"
-                @click="deleteRoiConfig(index)">刪除</button>
+                @click="deleteROIConfigs(index)">刪除</button>
       </div> -->
         <!-- <div class="col-1">
         <div>ROI編號</div>
@@ -210,7 +212,7 @@
       </div>
 
       <button type="button" class="btn btn-success mx-auto my-3 d-block" @click="addNewRoi">
-        新增/編輯ROI
+        新增ROI
       </button>
 
       <!-- 沒有震動ROI會顯示 "新增震動ROI" -->
@@ -218,47 +220,43 @@
         <h6>震動ROI</h6>
         <div class="col-1">
           <div>左上X</div>
-          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TL_X }}</div>
+          <div class="point_sec">{{ processingData.ROIConfigs[0].Stable_TL_X }}</div>
         </div>
         <div class="col-1">
           <div>左上Y</div>
-          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TL_Y }}</div>
+          <div class="point_sec">{{ processingData.ROIConfigs[0].Stable_TL_Y }}</div>
         </div>
         <div class="col-1">
           <div>右上X</div>
-          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TR_X }}</div>
+          <div class="point_sec">{{ processingData.ROIConfigs[0].Stable_TR_X }}</div>
         </div>
         <div class="col-1">
           <div>右上Y</div>
-          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_TR_Y }}</div>
+          <div class="point_sec">{{ processingData.ROIConfigs[0].Stable_TR_Y }}</div>
         </div>
         <div class="col-1">
           <div>右下X</div>
-          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LR_X }}</div>
+          <div class="point_sec">{{ processingData.ROIConfigs[0].Stable_LR_X }}</div>
         </div>
         <div class="col-1">
           <div>右下Y</div>
-          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LR_Y }}</div>
+          <div class="point_sec">{{ processingData.ROIConfigs[0].Stable_LR_Y }}</div>
         </div>
         <div class="col-1">
           <div>左下X</div>
-          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LL_X }}</div>
+          <div class="point_sec">{{ processingData.ROIConfigs[0].Stable_LL_X }}</div>
         </div>
         <div class="col-1">
           <div>左下Y</div>
-          <div class="point_sec">{{ processingData.ROIConfig[0].Stable_LL_Y }}</div>
+          <div class="point_sec">{{ processingData.ROIConfigs[0].Stable_LL_Y }}</div>
+        </div>
+        <div class="col-1 d-flex justify-content-center align-items-end">
+          <button type="button" class="btn btn-warning" @click="switchStableMode">編輯</button>
         </div>
         <!-- <div class="col-1 d-flex justify-content-center align-items-end">
         <button type="button"
-                class="btn btn-warning"
-                @click="switchStableMode">
-          編輯
-        </button>
-      </div> -->
-        <!-- <div class="col-1 d-flex justify-content-center align-items-end">
-        <button type="button"
                 class="btn btn-danger"
-                @click="deleteRoiConfig(index)">刪除</button>
+                @click="deleteROIConfigs(index)">刪除</button>
       </div> -->
       </div>
       <div class="stableNewPointsSec my-3 py-3 row" v-if="editStableMode">
@@ -310,11 +308,11 @@
           class="btn btn-success mx-auto my-3 d-block"
           @click="switchStableMode"
         >
-          新增/編輯震動ROI
+          新增震動ROI
         </button>
       </div>
       <button type="button" class="btn btn-success mx-auto my-3 d-block" @click="postToDatabase">
-        全部設定
+        儲存
       </button>
     </div>
   </body>
@@ -352,19 +350,19 @@
   }
 
   .roiPointsSec {
-    background-color: beige;
+    background-color: #ffcc99;
   }
 
   .roiNewPointsSec {
-    background-color: khaki;
+    background-color: #ffcc66;
   }
 
   .stablePointsSec {
-    background-color: lightblue;
+    background-color: #ccffff;
   }
 
   .stableNewPointsSec {
-    background-color: skyblue;
+    background-color: #99ccff;
   }
 
   .point_sec {
