@@ -39,8 +39,8 @@
         width="704"
         height="480"
         ref="canvas"
-        @mousemove="getCoords"
-        @click="editRoiPoints(); editStableRoiPoints()"
+        v-on:mousemove="getCoords"
+        v-on:click="editRoiPoints(); editStableRoiPoints()"
       ></canvas>
       <!-- 上傳檔案區 -->
       <!-- <div class="mt-3">
@@ -49,7 +49,7 @@
         <input type="file"
                class="form-control"
                id="inputGroupFile"
-               @change="uploadImage"
+               v-on:change="uploadImage"
                accept="image/*" />
         <label class="input-group-text"
                for="inputGroupFile">上傳</label>
@@ -99,20 +99,20 @@
           <div class="point_sec">{{ item.Smoke_LL_Y }}</div>
         </div>
         <div class="col-2 d-flex justify-content-center align-items-end">
-          <button type="button" class="btn me-3 btn-warning" @click="switchMode(item.ROI)">
+          <button type="button" class="btn me-3 btn-warning" v-on:click="switchMode(item.ROI)">
             編輯
           </button>
           <!-- <button type="button"
                 class="btn me-3"
                 :class="{'btn-warning': !recordMode, 'btn-danger': recordMode}"
-                @click="switchMode">
+                v-on:click="switchMode">
           編輯
         </button> -->
         </div>
         <!-- <div class="col-1 d-flex justify-content-center align-items-end">
         <button type="button"
                 class="btn btn-danger"
-                @click="deleteROIConfigs(index)">刪除</button>
+                v-on:click="deleteROIConfigs(index)">刪除</button>
       </div> -->
         <!-- <div class="col-1">
         <div>ROI編號</div>
@@ -154,7 +154,7 @@
         <button type="button"
                 class="btn me-3"
                 :class="{'btn-warning': !recordMode, 'btn-danger': recordMode}"
-                @click="switchMode">
+                v-on:click="switchMode">
           畫框
         </button>
       </div>
@@ -204,14 +204,16 @@
           <div class="point_sec">{{ onEdit.Smoke_LL_Y }}</div>
         </div>
         <div class="col-1 d-flex justify-content-center align-items-end">
-          <button type="button" class="btn me-3 btn-success" @click="storeEditResult">確定</button>
+          <button type="button" class="btn me-3 btn-success" v-on:click="storeEditResult">
+            確定
+          </button>
         </div>
         <div class="col-1 d-flex justify-content-center align-items-end">
-          <button type="button" class="btn btn-danger" @click="deleteEditResult">取消</button>
+          <button type="button" class="btn btn-danger" v-on:click="deleteEditResult">取消</button>
         </div>
       </div>
 
-      <button type="button" class="btn btn-success mx-auto my-3 d-block" @click="addNewRoi">
+      <button type="button" class="btn btn-success mx-auto my-3 d-block" v-on:click="addNewRoi">
         新增ROI
       </button>
 
@@ -251,12 +253,12 @@
           <div class="point_sec">{{ processingData.ROIConfigs[0].Stable_LL_Y }}</div>
         </div>
         <div class="col-1 d-flex justify-content-center align-items-end">
-          <button type="button" class="btn btn-warning" @click="switchStableMode">編輯</button>
+          <button type="button" class="btn btn-warning" v-on:click="switchStableMode">編輯</button>
         </div>
         <!-- <div class="col-1 d-flex justify-content-center align-items-end">
         <button type="button"
                 class="btn btn-danger"
-                @click="deleteROIConfigs(index)">刪除</button>
+                v-on:click="deleteROIConfigs(index)">刪除</button>
       </div> -->
       </div>
       <div class="stableNewPointsSec my-3 py-3 row" v-if="editStableMode">
@@ -294,24 +296,30 @@
           <div class="point_sec">{{ onEditStable.Stable_LL_Y }}</div>
         </div>
         <div class="col-1 d-flex justify-content-center align-items-end">
-          <button type="button" class="btn me-3 btn-success" @click="storeStableEditResult">
+          <button type="button" class="btn me-3 btn-success" v-on:click="storeStableEditResult">
             確定
           </button>
         </div>
         <div class="col-1 d-flex justify-content-center align-items-end">
-          <button type="button" class="btn btn-danger" @click="deleteStableEditResult">取消</button>
+          <button type="button" class="btn btn-danger" v-on:click="deleteStableEditResult">
+            取消
+          </button>
         </div>
       </div>
       <div>
         <button
           type="button"
           class="btn btn-success mx-auto my-3 d-block"
-          @click="switchStableMode"
+          v-on:click="switchStableMode"
         >
           新增震動ROI
         </button>
       </div>
-      <button type="button" class="btn btn-success mx-auto my-3 d-block" @click="postToDatabase">
+      <button
+        type="button"
+        class="btn btn-success mx-auto my-3 d-block"
+        v-on:click="postToDatabase"
+      >
         儲存
       </button>
     </div>

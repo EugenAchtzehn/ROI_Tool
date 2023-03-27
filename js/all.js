@@ -11,8 +11,7 @@ const vm = Vue.createApp({
         CameraName: 'Seaside Industrial Park',
         CameraPointId: 3,
         CameraPointNo: 1,
-        CameraPointImageUrl:
-          'https://eugenachtzehn.github.io/canvasToPNG/images/SamplePicture1.jpg',
+        CameraPointImageUrl: 'https://eugenachtzehn.github.io/canvasToPNG/images/SamplePicture1.jpg',
         ROIConfigs: [
           {
             ROIId: 105,
@@ -451,11 +450,7 @@ const vm = Vue.createApp({
       // vm.vueCanvas.lineWidth = 1;
       vm.vueCanvas.font = `700 1rem Arial`;
       vm.vueCanvas.fillStyle = 'red';
-      vm.vueCanvas.fillText(
-        roiConfigItem.ROI,
-        roiConfigItem.Smoke_LL_X,
-        roiConfigItem.Smoke_LL_Y + 16
-      );
+      vm.vueCanvas.fillText(roiConfigItem.ROI, roiConfigItem.Smoke_LL_X, roiConfigItem.Smoke_LL_Y + 16);
       // vm.vueCanvas.fillText(roiConfigItem);
     },
     renderStableRoi(roiConfigItem) {
@@ -604,7 +599,7 @@ const vm = Vue.createApp({
     storeStableEditResult() {
       const vm = this;
 
-      // 檢查是否參數不足 9 組
+      // 檢查是否參數不足 8 組
       let checkEmptyArray = Object.values(vm.onEditStable).filter((item) => {
         if (item) {
           return item;
@@ -759,8 +754,7 @@ const vm = Vue.createApp({
   computed: {
     hint() {
       const vm = this;
-      let displayedMessage =
-        '點擊新增/編輯ROI鈕後，請在圖面點擊4次，由左上 > 右上 > 右下 > 左下，點出四邊形的四個角';
+      let displayedMessage = '點擊新增/編輯ROI鈕後，請在圖面點擊4次，由左上 > 右上 > 右下 > 左下，點出四邊形的四個角';
 
       if (vm.editMode && !vm.onEdit.Smoke_TL_X) {
         displayedMessage = '請在圖面點選 ROI "左上"點位';
