@@ -13,6 +13,7 @@ const vm = Vue.createApp({
         CameraPointNo: 1,
         CameraPointImageUrl: 'https://eugenachtzehn.github.io/canvasToPNG/images/SamplePicture1.jpg',
         ROIConfigs: [
+          // {},
           {
             ROIId: 105,
             CameraId: 1,
@@ -450,7 +451,7 @@ const vm = Vue.createApp({
       // vm.vueCanvas.lineWidth = 1;
       vm.vueCanvas.font = `700 1rem Arial`;
       vm.vueCanvas.fillStyle = 'red';
-      vm.vueCanvas.fillText(roiConfigItem.ROI, roiConfigItem.Smoke_LL_X, roiConfigItem.Smoke_LL_Y + 16);
+      vm.vueCanvas.fillText(roiConfigItem.ROI, Number(roiConfigItem.Smoke_LL_X), Number(roiConfigItem.Smoke_LL_Y) + 16);
       // vm.vueCanvas.fillText(roiConfigItem);
     },
     renderStableRoi(roiConfigItem) {
@@ -481,8 +482,8 @@ const vm = Vue.createApp({
       }
       // console.log(vm.processingData.ROIConfigs[0].Stable_LL_Y);
 
-      // 至少已經設定一組 ROI 才能送出
-      if (vm.processingData.ROIConfigs.length) {
+      // 至少已經設定一組 ROI 才能送出，檢查第一組的 CameraId
+      if (vm.processingData.ROIConfigs[0]?.CameraId) {
         const postJson = vm.processingData;
         console.log(postJson);
         // 要設定 'Content-Type', 不然後端程式可能無法辨認內容
