@@ -8,131 +8,60 @@ const vm = Vue.createApp({
       processingData: {
         CameraId: 1,
         CameraNo: 'Cam_1',
-        CameraName: 'Seaside Industrial Park',
+        CameraName: 'Seaside1',
         CameraPointId: 3,
         CameraPointNo: 1,
         CameraPointImageUrl: 'https://eugenachtzehn.github.io/canvasToPNG/images/SamplePicture1.jpg',
         ROIConfigs: [
-          // {},
-          {
-            ROIId: 105,
-            CameraId: 1,
-            CameraNo: 'Cam_1',
-            CameraPointId: 3,
-            CameraPointNo: 1,
-            ALGFrame: 10,
-            ALG_Type: 16,
-            ContrastTH: 30,
-            DetectionTH: 50,
-            MaxBrightness: 225,
-            MinBrightness: 80,
-            Mode: 3,
-            RPC: 0,
-            Response: 15,
-            SmokeTH: 35,
-            ROI: 1,
-            Smoke_LL_X: 161,
-            Smoke_LL_Y: 254,
-            Smoke_LR_X: 343,
-            Smoke_LR_Y: 254,
-            Smoke_TL_X: 161,
-            Smoke_TL_Y: 202,
-            Smoke_TR_X: 343,
-            Smoke_TR_Y: 195,
-            StableTH: 3,
-            Stable_LL_X: 155,
-            Stable_LL_Y: 415,
-            Stable_LR_X: 335,
-            Stable_LR_Y: 415,
-            Stable_TL_X: 155,
-            Stable_TL_Y: 350,
-            Stable_TR_X: 335,
-            Stable_TR_Y: 350,
-            TextureTH: 30,
-            alertPointnum: 4,
-            iHeight: 480,
-            iWidth: 704,
-            ROIText: 'ROI1：華映',
-            GroupName: '',
-            isDelete: false,
-          },
-          {
-            ROIId: 99,
-            CameraId: 1,
-            CameraNo: 'Cam_1',
-            CameraPointId: 3,
-            CameraPointNo: 1,
-            ALGFrame: 10,
-            ALG_Type: 16,
-            ContrastTH: 30,
-            DetectionTH: 50,
-            MaxBrightness: 225,
-            MinBrightness: 80,
-            Mode: 3,
-            RPC: 0,
-            Response: 15,
-            SmokeTH: 35,
-            ROI: 2,
-            Smoke_LL_X: 10,
-            Smoke_LL_Y: 50,
-            Smoke_LR_X: 100,
-            Smoke_LR_Y: 50,
-            Smoke_TL_X: 10,
-            Smoke_TL_Y: 10,
-            Smoke_TR_X: 100,
-            Smoke_TR_Y: 10,
-            StableTH: 3,
-            Stable_LL_X: 155,
-            Stable_LL_Y: 415,
-            Stable_LR_X: 335,
-            Stable_LR_Y: 415,
-            Stable_TL_X: 155,
-            Stable_TL_Y: 350,
-            Stable_TR_X: 335,
-            Stable_TR_Y: 350,
-            TextureTH: 30,
-            alertPointnum: 4,
-            iHeight: 480,
-            iWidth: 704,
-            ROIText: 'ROI2：華映2',
-            GroupName: '',
-            isDelete: false,
-          },
+          {},
+          //{
+          //    ROIId: 105,
+          //    CameraId: 1,
+          //    CameraNo: 'Cam_1',
+          //    CameraPointId: 3,
+          //    CameraPointNo: 1,
+          //    ALGFrame: 10,
+          //    ALG_Type: 16,
+          //    ContrastTH: 30,
+          //    DetectionTH: 50,
+          //    MaxBrightness: 225,
+          //    MinBrightness: 80,
+          //    Mode: 3,
+          //    RPC: 0,
+          //    Response: 15,
+          //    SmokeTH: 35,
+          //    ROI: 1,
+          //    Smoke_LL_X: 161,
+          //    Smoke_LL_Y: 254,
+          //    Smoke_LR_X: 343,
+          //    Smoke_LR_Y: 254,
+          //    Smoke_TL_X: 161,
+          //    Smoke_TL_Y: 202,
+          //    Smoke_TR_X: 343,
+          //    Smoke_TR_Y: 195,
+          //    StableTH: 3,
+          //    Stable_LL_X: 155,
+          //    Stable_LL_Y: 415,
+          //    Stable_LR_X: 335,
+          //    Stable_LR_Y: 415,
+          //    Stable_TL_X: 155,
+          //    Stable_TL_Y: 350,
+          //    Stable_TR_X: 335,
+          //    Stable_TR_Y: 350,
+          //    TextureTH: 30,
+          //    alertPointnum: 4,
+          //    iHeight: 480,
+          //    iWidth: 704,
+          //    ROIText: 'ROI1：華映',
+          //    GroupName: '',
+          //    isDelete: false,
+          //},
         ],
       },
       // 編輯狀態，預設為 false
       editMode: false,
       // 震動框編輯狀態，預設為 false
       editStableMode: false,
-      pathCoords: [],
-      // 畫框可切換為 true
-      // recordMode: false,
-      // 先寫死，待研究怎麼取檔比較好
-      // imageList: [
-      //   { imagePoint: '照片範例1', imageFileName: 'SamplePicture1' },
-      //   { imagePoint: '照片範例2', imageFileName: 'SamplePicture2' },
-      //   { imagePoint: '照片範例3', imageFileName: 'SamplePicture3' },
-      //   { imagePoint: '照片範例4_夜間', imageFileName: 'SamplePicture4_Night' },
-      // ],
-      // 合框程式用的字體大小
-      // fontSize: 16,
-      // toTopPixel: 10,
-      // toLeftPixel: 10,
-      // rectWidthPixel: 100,
-      // rectHeightPixel: 50,
-      // textContentVal: 'ROI',
-      // leftShiftPixel: 0,
-      // bottomShiftPixel: 0,
-      // selectedOutlineColor: 'white',
-      // colors: ['white', 'black'],
-      // selectedFontWeight: 700,
-      // rotateDegree: 0,
-      // fontOptions: [
-      //   { weightName: 'Light', weightNum: 300 },
-      //   { weightName: 'Regular', weightNum: 400 },
-      //   { weightName: 'Bold', weightNum: 700 },
-      //   { weightName: 'Black', weightNum: 900 },
-      // ],
       selectedPoint: 'default',
       vueCanvas: null,
       onEdit: {
@@ -165,16 +94,21 @@ const vm = Vue.createApp({
         CameraPointId: '',
         CameraPointNo: '',
         // --- 外層傳入結束
-        ALGFrame: 10,
         ALG_Type: 16,
-        ContrastTH: 30,
-        DetectionTH: 50,
-        MaxBrightness: 225,
-        MinBrightness: 80,
+
+        // --- 20230421 參數設定介面
+        //SmokeTH: 35,
+        //DetectionTH: 50,
+        //Response: 15,
+        //MaxBrightness: 225,
+        //MinBrightness: 80,
+        //TextureTH: 30,
+        //ContrastTH: 30,
+        //StableTH: 3,
+        //ALGFrame: 10,
+        // ---
         Mode: 3,
         RPC: 0,
-        Response: 15,
-        SmokeTH: 35,
         // 以下參數由編輯介面設定
         // ROI: 1
         // Smoke_LL_X: 10,
@@ -185,7 +119,6 @@ const vm = Vue.createApp({
         // Smoke_TL_Y: 10,
         // Smoke_TR_X: 100,
         // Smoke_TR_Y: 10,
-        StableTH: 3,
         // Stable_LL_X: 155,
         // Stable_LL_Y: 415,
         // Stable_LR_X: 335,
@@ -194,7 +127,6 @@ const vm = Vue.createApp({
         // Stable_TL_Y: 350,
         // Stable_TR_X: 335,
         // Stable_TR_Y: 350,
-        TextureTH: 30,
         alertPointnum: 4,
         iHeight: 480,
         iWidth: 704,
@@ -202,57 +134,28 @@ const vm = Vue.createApp({
         GroupName: '',
         isDelete: false,
       },
+      onParamEditIndex: 0,
+      onParamEditMode: false,
+      onParamEditObject: {
+        SmokeTH: 0,
+        DetectionTH: 0,
+        Response: 0,
+        MaxBrightness: 0,
+        MinBrightness: 0,
+        TextureTH: 0,
+        ContrastTH: 0,
+        StableTH: 0,
+        ALGFrame: 0,
+      },
     };
   },
   methods: {
     getCoords(event) {
       const canvas = this.$refs.canvas;
-      // console.log('moved!');
-
-      // canvas 元素到網頁頂端的距離, 56
-      // console.log('canvas.offsetTop', canvas.offsetTop);
-      // canvas 元素的 borderTopWidth, 1
-      // console.log('canvas.clientTop', canvas.clientTop);
-      // canvas 元素到網頁左邊的距離, 214
-      // console.log('canvas.offsetLeft', canvas.offsetLeft);
-      // canvas 元素的 borderLeftWidth, 1
-      // console.log('canvas.clientLeft', canvas.clientLeft);
-
-      // 取得滑鼠移動事件
-      // console.log('event', event);
-
-      // 到目前瀏覽器顯示區域的頂端
-      // console.log('event clientY: ', event.clientY);
-      // 到頁面頂端
-      // console.log('event pageY: ', event.pageY);
-      // 到目前螢幕頂端(超出瀏覽器)
-      // console.log('event screenY: ', event.screenY);
-
       const vm = this;
       vm.XCoord = event.pageX - canvas.offsetLeft;
       vm.YCoord = event.pageY - canvas.offsetTop;
     },
-    // recordCoords(event) {
-    //   const vm = this;
-    //   // 若非 recordMode 則不執行此函數
-    //   if (!vm.recordMode) return;
-
-    //   // 限制繪製的點位數量
-    //   if (vm.pathCoords.length >= 4) {
-    //     window.alert('繪製點位不可超出 4 組！');
-    //     return;
-    //   }
-
-    //   let x = vm.XCoord;
-    //   let y = vm.YCoord;
-    //   vm.pathCoords.push({ x, y });
-    //   // 畫出第四組點位時，自動閉合成框，並關閉編輯模式
-    //   if (vm.pathCoords.length === 4) {
-    //     vm.drawPath();
-    //     vm.switchMode();
-    //   }
-    //   vm.drawConnection();
-    // },
     editRoiPoints() {
       const vm = this;
 
@@ -407,35 +310,6 @@ const vm = Vue.createApp({
       vm.vueCanvas.closePath();
       vm.vueCanvas.stroke();
     },
-    // drawPath() {
-    //   const vm = this;
-    //   if (vm.onEdit.Smoke_LL_Y) {
-    //     vm.vueCanvas.beginPath();
-    //     // vm.vueCanvas.moveTo(vm.onEdit.Smoke_TL_X, vm.onEdit.Smoke_TL_Y);
-    //     switch (vm.clickCount) {
-    //       case 1:
-    //         vm.vueCanvas.moveTo(vm.onEdit.Smoke_TL_X, vm.onEdit.Smoke_TL_Y);
-    //         break;
-    //       case 2:
-    //         vm.vueCanvas.lineTo(vm.onEdit.Smoke_TR_X, vm.onEdit.Smoke_TR_Y);
-    //         break;
-    //       case 3:
-    //         vm.vueCanvas.lineTo(vm.onEdit.Smoke_LR_X, vm.onEdit.Smoke_LR_Y);
-    //         break;
-    //       case 4:
-    //         vm.vueCanvas.lineTo(vm.onEdit.Smoke_LL_X, vm.onEdit.Smoke_LL_Y);
-    //         break;
-    //       default:
-    //         break;
-    //     }
-    //     vm.vueCanvas.closePath();
-    //     vm.vueCanvas.strokeStyle = 'green';
-    //     vm.vueCanvas.lineWidth = 3;
-    //     vm.vueCanvas.stroke();
-    //   } else {
-    //     console.log('drawPath() error...');
-    //   }
-    // },
     renderRoi(roiConfigItem) {
       const vm = this;
       vm.vueCanvas.strokeStyle = 'red';
@@ -483,26 +357,33 @@ const vm = Vue.createApp({
       // console.log(vm.processingData.ROIConfigs[0].Stable_LL_Y);
 
       // 至少已經設定一組 ROI 才能送出，檢查第一組的 CameraId
-      if (vm.processingData.ROIConfigs[0]?.CameraId) {
-        const postJson = vm.processingData;
-        console.log(postJson);
-        // 要設定 'Content-Type', 不然後端程式可能無法辨認內容
+      // 等操作完再拿掉 length 條件，目前 === 1
+      if (vm.processingData.ROIConfigs.length || vm.processingData.ROIConfigs[0]?.CameraId) {
+        console.log('送到資料庫前的 vm.processingData:', vm.processingData);
+        const postJson = JSON.stringify(vm.processingData);
+        console.log('postJson', postJson);
+        //let axiosConfig = {
+        //    method: 'post',
+        //    url: '/Camera/CAM/CAM1030E00_Save',
+        //    'Content-Type': 'application/json',
+        //};
+
         axios
-          .post('/Camera/CAM/CAM1030E00_Save', postJson, {
-            headers: { 'Content-Type': 'application/json' },
+          .post('/data_save', postJson, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
           })
           .then((response) => {
-            // console.log('response', response);
+            console.log(response);
 
             window.alert(response.data.Message);
-
-            // 跳轉回設定頁
-            // if (response.data.Url) {
-            //   location.href = response.data.Url;
-            // }
+            if (response.data.Url) {
+              location.href = response.data.Url;
+            }
           })
           .catch((error) => {
-            console.log('error:', error);
+            console.log(error);
             window.alert('送出失敗，請聯絡開發人員');
           });
       } else {
@@ -550,8 +431,9 @@ const vm = Vue.createApp({
       const roiNoArray = vm.processingData.ROIConfigs.map((item, index) => {
         return item.ROI;
       });
-      // console.log('roiNoArray', roiNoArray);
-      // console.log('onEdit.ROI', vm.onEdit.ROI);
+      console.log('roiNoArray', roiNoArray);
+      console.log('onEdit.ROI', vm.onEdit.ROI);
+
       console.log('roiNoArray.include(), 是否為既有ROI:', roiNoArray.includes(vm.onEdit.ROI));
       if (roiNoArray.includes(vm.onEdit.ROI)) {
         let replaceIndex = roiNoArray.indexOf(vm.onEdit.ROI);
@@ -578,8 +460,21 @@ const vm = Vue.createApp({
           };
         }
       } else {
-        // 加入 StableROI
-        vm.processingData.ROIConfigs.push({ ...vm.onEdit, ...vm.onEditStable });
+        // 檢查是否有設定九項辨識參數，沒有的話給預設值
+        const defaultDetectParamObj = {
+          SmokeTH: vm.onParamEditObject.SmokeTH || 30,
+          DetectionTH: vm.onParamEditObject.DetectionTH || 50,
+          Response: vm.onParamEditObject.Response || 10,
+          MaxBrightness: vm.onParamEditObject.MaxBrightness || 225,
+          MinBrightness: vm.onParamEditObject.MinBrightness || 80,
+          TextureTH: vm.onParamEditObject.TextureTH || 30,
+          ContrastTH: vm.onParamEditObject.ContrastTH || 30,
+          StableTH: vm.onParamEditObject.StableTH || 5,
+          ALGFrame: vm.onParamEditObject.ALGFrame || 10,
+        };
+        // 未設定過的新 ROI，加入 StableROI 設定值
+        const brandNewROI = { ...vm.onEdit, ...vm.onEditStable, ...defaultDetectParamObj };
+        vm.processingData.ROIConfigs.push(brandNewROI);
       }
 
       const noEmptyROIConfigsArray = vm.processingData.ROIConfigs.filter((item) => {
@@ -647,15 +542,48 @@ const vm = Vue.createApp({
       }
       vm.editStableMode = !vm.editStableMode;
     },
+    startEditParams(index) {
+      const vm = this;
+      vm.onParamEditIndex = index;
+      vm.onParamEditMode = true;
+      vm.onParamEditObject.SmokeTH = vm.processingData.ROIConfigs[index].SmokeTH;
+      vm.onParamEditObject.DetectionTH = vm.processingData.ROIConfigs[index].DetectionTH;
+      vm.onParamEditObject.Response = vm.processingData.ROIConfigs[index].Response;
+      vm.onParamEditObject.MaxBrightness = vm.processingData.ROIConfigs[index].MaxBrightness;
+      vm.onParamEditObject.MinBrightness = vm.processingData.ROIConfigs[index].MinBrightness;
+      vm.onParamEditObject.TextureTH = vm.processingData.ROIConfigs[index].TextureTH;
+      vm.onParamEditObject.ContrastTH = vm.processingData.ROIConfigs[index].ContrastTH;
+      vm.onParamEditObject.StableTH = vm.processingData.ROIConfigs[index].StableTH;
+      vm.onParamEditObject.ALGFrame = vm.processingData.ROIConfigs[index].ALGFrame;
+    },
+    saveEditParams() {
+      const vm = this;
+      // index 是要編輯的 ROIConfig 在 processingData.ROIConfigs 中的位置
+      const index = vm.onParamEditIndex;
+      // 將這些參數存回去 processingData.ROIConfigs 中
+      const objKeysArray = Object.keys(vm.onParamEditObject);
+      objKeysArray.forEach((item) => {
+        vm.processingData.ROIConfigs[index][item] = vm.onParamEditObject[item];
+      });
+      vm.onParamEditIndex = 0;
+      vm.stopEditParams();
+    },
+    stopEditParams() {
+      const vm = this;
+      // 清空編輯區
+      const objKeyArray = Object.keys(vm.onParamEditObject);
+      objKeyArray.forEach((item) => {
+        vm.onParamEditObject[item] = 0;
+      });
+      vm.onParamEditMode = false;
+    },
     async renderImage() {
       const vm = this;
-      const url = 'https://eugenachtzehn.github.io/canvasToPNG/images/SamplePicture1.jpg';
-      // const url =
-      //   'https://images.unsplash.com/photo-1679597454493-d86b77bdf2fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80';
+      const url = vm.processingData.CameraPointImageUrl;
       // 重點在於 onload 要 resolved 才進入 drawImage()
       const image = await vm.loadImage(url);
       console.log('loadImage() success...');
-      // console.log(image);
+      //console.log(image);
       vm.vueCanvas.drawImage(image, 0, 0);
     },
     loadImage(url) {
@@ -724,34 +652,6 @@ const vm = Vue.createApp({
       vm.initProcess();
     },
   },
-  // 資料監聽
-  watch: {
-    // 'pathCoords.length': function () {
-    //   const vm = this;
-    //   console.log('Watching pathCoords length...', vm.pathCoords.length);
-    //   switch (vm.pathCoords.length) {
-    //     case 1:
-    //       vm.onEdit.TL_X = vm.pathCoords[0].x;
-    //       vm.onEdit.TL_Y = vm.pathCoords[0].y;
-    //       break;
-    //     case 2:
-    //       vm.onEdit.TR_X = vm.pathCoords[1].x;
-    //       vm.onEdit.TR_Y = vm.pathCoords[1].y;
-    //       break;
-    //     case 3:
-    //       vm.onEdit.LR_X = vm.pathCoords[2].x;
-    //       vm.onEdit.LR_Y = vm.pathCoords[2].y;
-    //       break;
-    //     case 4:
-    //       vm.onEdit.LL_X = vm.pathCoords[3].x;
-    //       vm.onEdit.LL_Y = vm.pathCoords[3].y;
-    //       break;
-    //     default:
-    //       console.log('pathCoords.length not expectable');
-    //       break;
-    //   }
-    // },
-  },
   computed: {
     hint() {
       const vm = this;
@@ -778,13 +678,17 @@ const vm = Vue.createApp({
     this.vueCanvas = canvas;
 
     // 與實體 DOM 連結，抓取 hidden input
-    // const inputHiddenValue = this.$refs.processingData.value;
-    // this.processingData = JSON.parse(inputHiddenValue);
+    const inputHiddenValue = this.$refs.processingData.value;
 
-    // console.log('inputHiddenValue', JSON.parse(inputHiddenValue));
+    console.log('inputHiddenValue', JSON.parse(inputHiddenValue));
+    this.processingData = JSON.parse(inputHiddenValue);
+
+    //console.log('processingData', this.processingData);
+    //console.log(typeof this.processingData);
 
     this.initProcess();
 
+    //console.log(this.processingData.ROIConfigs)
     // 如果載入時已經有 StableROI 則帶入第一筆到 onEditStable
     if (this.processingData.ROIConfigs[0].Stable_LL_Y) {
       this.onEditStable.Stable_TL_X = this.processingData.ROIConfigs[0].Stable_TL_X;

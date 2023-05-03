@@ -6,6 +6,8 @@ To help client-side users draw ROIs (Region of Interest) with a front-end UI.
 
 協助客戶端使用者以前端繪圖 (canvas) 的方式，將要進行辨識的 ROI 和 "震動框" 直接用 API 方式提交給資料庫儲存。
 
+必須至少設定一組 ROI 和震動框才能送到資料庫。
+
 ## 工具有區分的流程狀態
 
 - 新增 ROI

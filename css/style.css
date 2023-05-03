@@ -1,0 +1,73 @@
+body {
+  background-color: #e6e6e6;
+}
+
+canvas {
+  border: 2px solid #003300;
+}
+
+.pointRecordsSection {
+  background-color: #e6e6e6;
+  height: 80px;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+}
+
+h1 {
+  font-family: Noto Sans TC, Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.mouseCoords {
+  /* display: inline-block; */
+  font-size: 1.2rem;
+}
+
+.hint_sec {
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 2px solid navy;
+  width: 708px;
+}
+
+.roiPointsSec {
+  background-color: #f5f5dc;
+}
+
+.roiNewPointsSec {
+  background-color: #ffcc66;
+}
+
+.stablePointsSec {
+  background-color: #ccffff;
+}
+
+.stableNewPointsSec {
+  background-color: #90ee90;
+}
+
+.point_sec {
+  padding-top: 1rem;
+}
+
+.hint_animation {
+  animation-name: hint_animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes hint_animation {
+  0% {
+    color: #ff0000;
+  }
+
+  50% {
+    color: #ffa500;
+  }
+
+  100% {
+    color: #ff0000;
+  }
+}
